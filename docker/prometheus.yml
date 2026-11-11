@@ -1,0 +1,10 @@
+global:
+  scrape_interval: 15s
+storage:
+  tsdb:
+    out_of_order_time_window: 30d
+otlp:
+  translation_strategy: NoTranslation
+  promote_resource_attributes:
+    - service.instance.id
+    - service.name

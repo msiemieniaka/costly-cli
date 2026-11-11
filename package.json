@@ -1,0 +1,16 @@
+{
+  "name": "costly-cli",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "bin": { "costly": "packages/cli/main.ts" },
+  "files": ["packages", "docker", "docs", "README.md", "LICENSE"],
+  "scripts": {
+    "dev": "bun packages/cli/main.ts",
+    "test": "bun test",
+    "lint": "bun --bun node_modules/typescript/bin/tsc --noEmit",
+    "build": "bun build packages/cli/main.ts --target=bun --outdir=dist"
+  },
+  "devDependencies": { "@types/bun": "latest", "typescript": "^5.9.3" }
+}

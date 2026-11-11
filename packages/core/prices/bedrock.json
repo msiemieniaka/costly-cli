@@ -1,0 +1,7 @@
+{
+  "version": "aws-us-east-1-20261109224312",
+  "models": {
+    "bedrock/us-east-1/global.anthropic.claude-sonnet-4-6": { "input": 0.000003, "output": 0.000015, "cache_read": 0.0000003, "cache_write": 0.00000375, "cache_write_1h": 0.000006 },
+    "bedrock/us-east-1/us.anthropic.claude-sonnet-4-6": { "input": 0.0000033, "output": 0.0000165, "cache_read": 0.00000033, "cache_write": 0.000004125, "cache_write_1h": 0.0000066 }
+  }
+}

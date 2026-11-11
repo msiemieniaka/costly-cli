@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "ESNext", "module": "ESNext", "moduleResolution": "bundler",
+    "strict": true, "noEmit": true, "allowImportingTsExtensions": true,
+    "resolveJsonModule": true, "esModuleInterop": true, "skipLibCheck": true,
+    "types": ["bun"]
+  },
+  "include": ["packages/**/*.ts", "tests/**/*.ts", "scripts/**/*.ts"]
+}
