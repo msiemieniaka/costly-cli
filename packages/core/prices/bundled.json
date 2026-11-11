@@ -1,0 +1,1497 @@
+{
+  "version": "litellm:769895acfb15c846",
+  "models": {
+    "bedrock/anthropic.claude-3-5-haiku-20241022-v1:0": {
+      "input": 8e-7,
+      "output": 0.000004,
+      "cache_read": 8e-8,
+      "cache_write": 0.000001
+    },
+    "bedrock/anthropic.claude-3-5-sonnet-20240620-v1:0": {
+      "input": 0.000003,
+      "output": 0.000015,
+      "cache_read": 3e-7,
+      "cache_write": 0.00000375
+    },
+    "bedrock/anthropic.claude-3-5-sonnet-20241022-v2:0": {
+      "input": 0.000003,
+      "output": 0.000015,
+      "cache_read": 3e-7,
+      "cache_write": 0.00000375
+    },
+    "bedrock/anthropic.claude-3-7-sonnet-20240620-v1:0": {
+      "input": 0.0000036,
+      "output": 0.000018,
+      "cache_read": 3.6e-7,
+      "cache_write": 0.0000045
+    },
+    "bedrock/anthropic.claude-3-opus-20240229-v1:0": {
+      "input": 0.000015,
+      "output": 0.000075,
+      "cache_read": 0.0000015,
+      "cache_write": 0.00001875
+    },
+    "bedrock/anthropic.claude-instant-v1": {
+      "input": 8e-7,
+      "output": 0.0000024
+    },
+    "bedrock/anthropic.claude-mythos-preview": {
+      "input": 0.0000275,
+      "output": 0.0001375,
+      "cache_read": 0.00000275,
+      "cache_write": 0.000034375,
+      "cache_write_1h": 0.000055
+    },
+    "bedrock/anthropic.claude-v1": {
+      "input": 0.000008,
+      "output": 0.000024
+    },
+    "bedrock/anthropic.claude-v2:1": {
+      "input": 0.000008,
+      "output": 0.000024
+    },
+    "bedrock/us.anthropic.claude-3-5-haiku-20241022-v1:0": {
+      "input": 8e-7,
+      "output": 0.000004,
+      "cache_read": 8e-8,
+      "cache_write": 0.000001
+    },
+    "gpt-4o-transcribe-diarize": {
+      "input": 0.0000025,
+      "output": 0.00001
+    },
+    "openai/gpt-4o-transcribe-diarize": {
+      "input": 0.0000025,
+      "output": 0.00001
+    },
+    "claude-haiku-4-5-20251001": {
+      "input": 0.000001,
+      "output": 0.000005,
+      "cache_read": 1e-7,
+      "cache_write": 0.00000125,
+      "cache_write_1h": 0.000002
+    },
+    "anthropic/claude-haiku-4-5-20251001": {
+      "input": 0.000001,
+      "output": 0.000005,
+      "cache_read": 1e-7,
+      "cache_write": 0.00000125,
+      "cache_write_1h": 0.000002
+    },
+    "claude-haiku-4-5": {
+      "input": 0.000001,
+      "output": 0.000005,
+      "cache_read": 1e-7,
+      "cache_write": 0.00000125,
+      "cache_write_1h": 0.000002
+    },
+    "anthropic/claude-haiku-4-5": {
+      "input": 0.000001,
+      "output": 0.000005,
+      "cache_read": 1e-7,
+      "cache_write": 0.00000125,
+      "cache_write_1h": 0.000002
+    },
+    "claude-sonnet-4-5": {
+      "input": 0.000003,
+      "output": 0.000015,
+      "cache_read": 3e-7,
+      "cache_write": 0.00000375,
+      "cache_write_1h": 0.000006
+    },
+    "anthropic/claude-sonnet-4-5": {
+      "input": 0.000003,
+      "output": 0.000015,
+      "cache_read": 3e-7,
+      "cache_write": 0.00000375,
+      "cache_write_1h": 0.000006
+    },
+    "claude-sonnet-4-5-20250929": {
+      "input": 0.000003,
+      "output": 0.000015,
+      "cache_read": 3e-7,
+      "cache_write": 0.00000375,
+      "cache_write_1h": 0.000006
+    },
+    "anthropic/claude-sonnet-4-5-20250929": {
+      "input": 0.000003,
+      "output": 0.000015,
+      "cache_read": 3e-7,
+      "cache_write": 0.00000375,
+      "cache_write_1h": 0.000006
+    },
+    "claude-sonnet-5": {
+      "input": 0.000002,
+      "output": 0.00001,
+      "cache_read": 2e-7,
+      "cache_write": 0.0000025,
+      "cache_write_1h": 0.000004
+    },
+    "anthropic/claude-sonnet-5": {
+      "input": 0.000002,
+      "output": 0.00001,
+      "cache_read": 2e-7,
+      "cache_write": 0.0000025,
+      "cache_write_1h": 0.000004
+    },
+    "claude-sonnet-5-5": {
+      "input": 0.000002,
+      "output": 0.00001,
+      "cache_read": 1e-7,
+      "cache_write": 0.0000025,
+      "cache_write_1h": 0.000004
+    },
+    "anthropic/claude-sonnet-5-5": {
+      "input": 0.000002,
+      "output": 0.00001,
+      "cache_read": 1e-7,
+      "cache_write": 0.0000025,
+      "cache_write_1h": 0.000004
+    },
+    "claude-sonnet-4-6": {
+      "input": 0.000003,
+      "output": 0.000015,
+      "cache_read": 3e-7,
+      "cache_write": 0.00000375,
+      "cache_write_1h": 0.000006
+    },
+    "anthropic/claude-sonnet-4-6": {
+      "input": 0.000003,
+      "output": 0.000015,
+      "cache_read": 3e-7,
+      "cache_write": 0.00000375,
+      "cache_write_1h": 0.000006
+    },
+    "claude-sonnet-4-5-20250929-v1:0": {
+      "input": 0.000003,
+      "output": 0.000015,
+      "cache_read": 3e-7,
+      "cache_write": 0.00000375,
+      "cache_write_1h": 0.000006
+    },
+    "claude-opus-4-5-20251101": {
+      "input": 0.000005,
+      "output": 0.000025,
+      "cache_read": 5e-7,
+      "cache_write": 0.00000625,
+      "cache_write_1h": 0.00001
+    },
+    "anthropic/claude-opus-4-5-20251101": {
+      "input": 0.000005,
+      "output": 0.000025,
+      "cache_read": 5e-7,
+      "cache_write": 0.00000625,
+      "cache_write_1h": 0.00001
+    },
+    "claude-opus-4-5": {
+      "input": 0.000005,
+      "output": 0.000025,
+      "cache_read": 5e-7,
+      "cache_write": 0.00000625,
+      "cache_write_1h": 0.00001
+    },
+    "anthropic/claude-opus-4-5": {
+      "input": 0.000005,
+      "output": 0.000025,
+      "cache_read": 5e-7,
+      "cache_write": 0.00000625,
+      "cache_write_1h": 0.00001
+    },
+    "claude-opus-4-6": {
+      "input": 0.000005,
+      "output": 0.000025,
+      "cache_read": 5e-7,
+      "cache_write": 0.00000625,
+      "cache_write_1h": 0.00001
+    },
+    "anthropic/claude-opus-4-6": {
+      "input": 0.000005,
+      "output": 0.000025,
+      "cache_read": 5e-7,
+      "cache_write": 0.00000625,
+      "cache_write_1h": 0.00001
+    },
+    "claude-opus-4-6-20260205": {
+      "input": 0.000005,
+      "output": 0.000025,
+      "cache_read": 5e-7,
+      "cache_write": 0.00000625,
+      "cache_write_1h": 0.00001
+    },
+    "anthropic/claude-opus-4-6-20260205": {
+      "input": 0.000005,
+      "output": 0.000025,
+      "cache_read": 5e-7,
+      "cache_write": 0.00000625,
+      "cache_write_1h": 0.00001
+    },
+    "claude-opus-4-7": {
+      "input": 0.000005,
+      "output": 0.000025,
+      "cache_read": 5e-7,
+      "cache_write": 0.00000625,
+      "cache_write_1h": 0.00001
+    },
+    "anthropic/claude-opus-4-7": {
+      "input": 0.000005,
+      "output": 0.000025,
+      "cache_read": 5e-7,
+      "cache_write": 0.00000625,
+      "cache_write_1h": 0.00001
+    },
+    "claude-opus-4-7-20260416": {
+      "input": 0.000005,
+      "output": 0.000025,
+      "cache_read": 5e-7,
+      "cache_write": 0.00000625,
+      "cache_write_1h": 0.00001
+    },
+    "anthropic/claude-opus-4-7-20260416": {
+      "input": 0.000005,
+      "output": 0.000025,
+      "cache_read": 5e-7,
+      "cache_write": 0.00000625,
+      "cache_write_1h": 0.00001
+    },
+    "claude-fable-5": {
+      "input": 0.00001,
+      "output": 0.00005,
+      "cache_read": 0.000001,
+      "cache_write": 0.0000125,
+      "cache_write_1h": 0.00002
+    },
+    "anthropic/claude-fable-5": {
+      "input": 0.00001,
+      "output": 0.00005,
+      "cache_read": 0.000001,
+      "cache_write": 0.0000125,
+      "cache_write_1h": 0.00002
+    },
+    "claude-fable-5-1": {
+      "input": 0.00001,
+      "output": 0.00005,
+      "cache_read": 2.5e-7,
+      "cache_write": 0.0000125,
+      "cache_write_1h": 0.00002
+    },
+    "anthropic/claude-fable-5-1": {
+      "input": 0.00001,
+      "output": 0.00005,
+      "cache_read": 2.5e-7,
+      "cache_write": 0.0000125,
+      "cache_write_1h": 0.00002
+    },
+    "claude-opus-5-5": {
+      "input": 0.000004,
+      "output": 0.00002,
+      "cache_read": 2e-7,
+      "cache_write": 0.000005,
+      "cache_write_1h": 0.000008
+    },
+    "anthropic/claude-opus-5-5": {
+      "input": 0.000004,
+      "output": 0.00002,
+      "cache_read": 2e-7,
+      "cache_write": 0.000005,
+      "cache_write_1h": 0.000008
+    },
+    "claude-opus-5": {
+      "input": 0.000005,
+      "output": 0.000025,
+      "cache_read": 5e-7,
+      "cache_write": 0.00000625,
+      "cache_write_1h": 0.00001
+    },
+    "anthropic/claude-opus-5": {
+      "input": 0.000005,
+      "output": 0.000025,
+      "cache_read": 5e-7,
+      "cache_write": 0.00000625,
+      "cache_write_1h": 0.00001
+    },
+    "claude-opus-4-8": {
+      "input": 0.000005,
+      "output": 0.000025,
+      "cache_read": 5e-7,
+      "cache_write": 0.00000625,
+      "cache_write_1h": 0.00001
+    },
+    "anthropic/claude-opus-4-8": {
+      "input": 0.000005,
+      "output": 0.000025,
+      "cache_read": 5e-7,
+      "cache_write": 0.00000625,
+      "cache_write_1h": 0.00001
+    },
+    "gpt-3.5-turbo": {
+      "input": 5e-7,
+      "output": 0.0000015
+    },
+    "openai/gpt-3.5-turbo": {
+      "input": 5e-7,
+      "output": 0.0000015
+    },
+    "gpt-3.5-turbo-0125": {
+      "input": 5e-7,
+      "output": 0.0000015
+    },
+    "openai/gpt-3.5-turbo-0125": {
+      "input": 5e-7,
+      "output": 0.0000015
+    },
+    "gpt-3.5-turbo-1106": {
+      "input": 0.000001,
+      "output": 0.000002
+    },
+    "openai/gpt-3.5-turbo-1106": {
+      "input": 0.000001,
+      "output": 0.000002
+    },
+    "gpt-3.5-turbo-16k": {
+      "input": 0.000003,
+      "output": 0.000004
+    },
+    "openai/gpt-3.5-turbo-16k": {
+      "input": 0.000003,
+      "output": 0.000004
+    },
+    "gpt-3.5-turbo-instruct": {
+      "input": 0.0000015,
+      "output": 0.000002
+    },
+    "gpt-3.5-turbo-instruct-0914": {
+      "input": 0.0000015,
+      "output": 0.000002
+    },
+    "gpt-4": {
+      "input": 0.00003,
+      "output": 0.00006
+    },
+    "openai/gpt-4": {
+      "input": 0.00003,
+      "output": 0.00006
+    },
+    "gpt-4-0613": {
+      "input": 0.00003,
+      "output": 0.00006
+    },
+    "openai/gpt-4-0613": {
+      "input": 0.00003,
+      "output": 0.00006
+    },
+    "gpt-4-1106-preview": {
+      "input": 0.00001,
+      "output": 0.00003
+    },
+    "openai/gpt-4-1106-preview": {
+      "input": 0.00001,
+      "output": 0.00003
+    },
+    "gpt-4-turbo": {
+      "input": 0.00001,
+      "output": 0.00003
+    },
+    "openai/gpt-4-turbo": {
+      "input": 0.00001,
+      "output": 0.00003
+    },
+    "gpt-4-turbo-2024-04-09": {
+      "input": 0.00001,
+      "output": 0.00003
+    },
+    "openai/gpt-4-turbo-2024-04-09": {
+      "input": 0.00001,
+      "output": 0.00003
+    },
+    "gpt-4.1": {
+      "input": 0.000002,
+      "output": 0.000008,
+      "cache_read": 5e-7
+    },
+    "openai/gpt-4.1": {
+      "input": 0.000002,
+      "output": 0.000008,
+      "cache_read": 5e-7
+    },
+    "gpt-4.1-2025-04-14": {
+      "input": 0.000002,
+      "output": 0.000008,
+      "cache_read": 5e-7
+    },
+    "openai/gpt-4.1-2025-04-14": {
+      "input": 0.000002,
+      "output": 0.000008,
+      "cache_read": 5e-7
+    },
+    "gpt-4.1-mini": {
+      "input": 4e-7,
+      "output": 0.0000016,
+      "cache_read": 1e-7
+    },
+    "openai/gpt-4.1-mini": {
+      "input": 4e-7,
+      "output": 0.0000016,
+      "cache_read": 1e-7
+    },
+    "gpt-4.1-mini-2025-04-14": {
+      "input": 4e-7,
+      "output": 0.0000016,
+      "cache_read": 1e-7
+    },
+    "openai/gpt-4.1-mini-2025-04-14": {
+      "input": 4e-7,
+      "output": 0.0000016,
+      "cache_read": 1e-7
+    },
+    "gpt-4.1-nano": {
+      "input": 1e-7,
+      "output": 4e-7,
+      "cache_read": 2.5e-8
+    },
+    "openai/gpt-4.1-nano": {
+      "input": 1e-7,
+      "output": 4e-7,
+      "cache_read": 2.5e-8
+    },
+    "gpt-4.1-nano-2025-04-14": {
+      "input": 1e-7,
+      "output": 4e-7,
+      "cache_read": 2.5e-8
+    },
+    "openai/gpt-4.1-nano-2025-04-14": {
+      "input": 1e-7,
+      "output": 4e-7,
+      "cache_read": 2.5e-8
+    },
+    "gpt-4o": {
+      "input": 0.0000025,
+      "output": 0.00001,
+      "cache_read": 0.00000125
+    },
+    "openai/gpt-4o": {
+      "input": 0.0000025,
+      "output": 0.00001,
+      "cache_read": 0.00000125
+    },
+    "gpt-4o-2024-05-13": {
+      "input": 0.000005,
+      "output": 0.000015
+    },
+    "openai/gpt-4o-2024-05-13": {
+      "input": 0.000005,
+      "output": 0.000015
+    },
+    "gpt-4o-2024-08-06": {
+      "input": 0.0000025,
+      "output": 0.00001,
+      "cache_read": 0.00000125
+    },
+    "openai/gpt-4o-2024-08-06": {
+      "input": 0.0000025,
+      "output": 0.00001,
+      "cache_read": 0.00000125
+    },
+    "gpt-4o-2024-11-20": {
+      "input": 0.0000025,
+      "output": 0.00001,
+      "cache_read": 0.00000125
+    },
+    "openai/gpt-4o-2024-11-20": {
+      "input": 0.0000025,
+      "output": 0.00001,
+      "cache_read": 0.00000125
+    },
+    "gpt-4o-audio-preview-2024-12-17": {
+      "input": 0.0000025,
+      "output": 0.00001
+    },
+    "openai/gpt-4o-audio-preview-2024-12-17": {
+      "input": 0.0000025,
+      "output": 0.00001
+    },
+    "gpt-4o-audio-preview-2025-06-03": {
+      "input": 0.0000025,
+      "output": 0.00001
+    },
+    "openai/gpt-4o-audio-preview-2025-06-03": {
+      "input": 0.0000025,
+      "output": 0.00001
+    },
+    "gpt-audio": {
+      "input": 0.0000025,
+      "output": 0.00001
+    },
+    "openai/gpt-audio": {
+      "input": 0.0000025,
+      "output": 0.00001
+    },
+    "gpt-audio-1.5": {
+      "input": 0.0000025,
+      "output": 0.00001
+    },
+    "openai/gpt-audio-1.5": {
+      "input": 0.0000025,
+      "output": 0.00001
+    },
+    "gpt-audio-2025-08-28": {
+      "input": 0.0000025,
+      "output": 0.00001
+    },
+    "openai/gpt-audio-2025-08-28": {
+      "input": 0.0000025,
+      "output": 0.00001
+    },
+    "gpt-audio-mini": {
+      "input": 6e-7,
+      "output": 0.0000024
+    },
+    "openai/gpt-audio-mini": {
+      "input": 6e-7,
+      "output": 0.0000024
+    },
+    "gpt-audio-mini-2025-10-06": {
+      "input": 6e-7,
+      "output": 0.0000024
+    },
+    "openai/gpt-audio-mini-2025-10-06": {
+      "input": 6e-7,
+      "output": 0.0000024
+    },
+    "gpt-audio-mini-2025-12-15": {
+      "input": 6e-7,
+      "output": 0.0000024
+    },
+    "openai/gpt-audio-mini-2025-12-15": {
+      "input": 6e-7,
+      "output": 0.0000024
+    },
+    "gpt-4o-mini": {
+      "input": 1.5e-7,
+      "output": 6e-7,
+      "cache_read": 7.5e-8
+    },
+    "openai/gpt-4o-mini": {
+      "input": 1.5e-7,
+      "output": 6e-7,
+      "cache_read": 7.5e-8
+    },
+    "gpt-4o-mini-2024-07-18": {
+      "input": 1.5e-7,
+      "output": 6e-7,
+      "cache_read": 7.5e-8
+    },
+    "openai/gpt-4o-mini-2024-07-18": {
+      "input": 1.5e-7,
+      "output": 6e-7,
+      "cache_read": 7.5e-8
+    },
+    "gpt-4o-mini-audio-preview-2024-12-17": {
+      "input": 1.5e-7,
+      "output": 6e-7
+    },
+    "openai/gpt-4o-mini-audio-preview-2024-12-17": {
+      "input": 1.5e-7,
+      "output": 6e-7
+    },
+    "gpt-4o-mini-realtime-preview-2024-12-17": {
+      "input": 6e-7,
+      "output": 0.0000024,
+      "cache_read": 3e-7
+    },
+    "openai/gpt-4o-mini-realtime-preview-2024-12-17": {
+      "input": 6e-7,
+      "output": 0.0000024,
+      "cache_read": 3e-7
+    },
+    "gpt-4o-mini-search-preview": {
+      "input": 1.5e-7,
+      "output": 6e-7,
+      "cache_read": 7.5e-8
+    },
+    "openai/gpt-4o-mini-search-preview": {
+      "input": 1.5e-7,
+      "output": 6e-7,
+      "cache_read": 7.5e-8
+    },
+    "gpt-4o-mini-search-preview-2025-03-11": {
+      "input": 1.5e-7,
+      "output": 6e-7,
+      "cache_read": 7.5e-8
+    },
+    "openai/gpt-4o-mini-search-preview-2025-03-11": {
+      "input": 1.5e-7,
+      "output": 6e-7,
+      "cache_read": 7.5e-8
+    },
+    "gpt-4o-mini-transcribe": {
+      "input": 0.00000125,
+      "output": 0.000005
+    },
+    "openai/gpt-4o-mini-transcribe": {
+      "input": 0.00000125,
+      "output": 0.000005
+    },
+    "gpt-4o-mini-tts": {
+      "input": 6e-7,
+      "output": 0.00001
+    },
+    "openai/gpt-4o-mini-tts": {
+      "input": 6e-7,
+      "output": 0.00001
+    },
+    "gpt-4o-mini-tts-2025-03-20": {
+      "input": 6e-7,
+      "output": 0.00001
+    },
+    "openai/gpt-4o-mini-tts-2025-03-20": {
+      "input": 6e-7,
+      "output": 0.00001
+    },
+    "gpt-4o-search-preview": {
+      "input": 0.0000025,
+      "output": 0.00001,
+      "cache_read": 0.00000125
+    },
+    "openai/gpt-4o-search-preview": {
+      "input": 0.0000025,
+      "output": 0.00001,
+      "cache_read": 0.00000125
+    },
+    "gpt-4o-search-preview-2025-03-11": {
+      "input": 0.0000025,
+      "output": 0.00001,
+      "cache_read": 0.00000125
+    },
+    "openai/gpt-4o-search-preview-2025-03-11": {
+      "input": 0.0000025,
+      "output": 0.00001,
+      "cache_read": 0.00000125
+    },
+    "gpt-4o-transcribe": {
+      "input": 0.0000025,
+      "output": 0.00001
+    },
+    "openai/gpt-4o-transcribe": {
+      "input": 0.0000025,
+      "output": 0.00001
+    },
+    "gpt-image-1.5": {
+      "input": 0.000005,
+      "output": 0.00001,
+      "cache_read": 0.00000125
+    },
+    "openai/gpt-image-1.5": {
+      "input": 0.000005,
+      "output": 0.00001,
+      "cache_read": 0.00000125
+    },
+    "gpt-image-1.5-2025-12-16": {
+      "input": 0.000005,
+      "output": 0.00001,
+      "cache_read": 0.00000125
+    },
+    "openai/gpt-image-1.5-2025-12-16": {
+      "input": 0.000005,
+      "output": 0.00001,
+      "cache_read": 0.00000125
+    },
+    "gpt-5": {
+      "input": 0.00000125,
+      "output": 0.00001,
+      "cache_read": 1.25e-7
+    },
+    "openai/gpt-5": {
+      "input": 0.00000125,
+      "output": 0.00001,
+      "cache_read": 1.25e-7
+    },
+    "gpt-5-codex": {
+      "input": 0.00000125,
+      "output": 0.00001,
+      "cache_read": 1.25e-7
+    },
+    "openai/gpt-5-codex": {
+      "input": 0.00000125,
+      "output": 0.00001,
+      "cache_read": 1.25e-7
+    },
+    "gpt-5.1": {
+      "input": 0.00000125,
+      "output": 0.00001,
+      "cache_read": 1.25e-7
+    },
+    "openai/gpt-5.1": {
+      "input": 0.00000125,
+      "output": 0.00001,
+      "cache_read": 1.25e-7
+    },
+    "gpt-5.1-codex-mini": {
+      "input": 2.5e-7,
+      "output": 0.000002,
+      "cache_read": 2.5e-8
+    },
+    "openai/gpt-5.1-codex-mini": {
+      "input": 2.5e-7,
+      "output": 0.000002,
+      "cache_read": 2.5e-8
+    },
+    "gpt-5.1-codex-max": {
+      "input": 0.00000125,
+      "output": 0.00001,
+      "cache_read": 1.25e-7
+    },
+    "openai/gpt-5.1-codex-max": {
+      "input": 0.00000125,
+      "output": 0.00001,
+      "cache_read": 1.25e-7
+    },
+    "gpt-5.1-codex": {
+      "input": 0.00000125,
+      "output": 0.00001,
+      "cache_read": 1.25e-7
+    },
+    "openai/gpt-5.1-codex": {
+      "input": 0.00000125,
+      "output": 0.00001,
+      "cache_read": 1.25e-7
+    },
+    "gpt-5.1-chat-latest": {
+      "input": 0.00000125,
+      "output": 0.00001,
+      "cache_read": 1.25e-7
+    },
+    "openai/gpt-5.1-chat-latest": {
+      "input": 0.00000125,
+      "output": 0.00001,
+      "cache_read": 1.25e-7
+    },
+    "gpt-5.1-2025-11-13": {
+      "input": 0.00000125,
+      "output": 0.00001,
+      "cache_read": 1.25e-7
+    },
+    "openai/gpt-5.1-2025-11-13": {
+      "input": 0.00000125,
+      "output": 0.00001,
+      "cache_read": 1.25e-7
+    },
+    "gpt-5.2": {
+      "input": 0.00000175,
+      "output": 0.000014,
+      "cache_read": 1.75e-7
+    },
+    "openai/gpt-5.2": {
+      "input": 0.00000175,
+      "output": 0.000014,
+      "cache_read": 1.75e-7
+    },
+    "gpt-5.2-codex": {
+      "input": 0.00000175,
+      "output": 0.000014,
+      "cache_read": 1.75e-7
+    },
+    "openai/gpt-5.2-codex": {
+      "input": 0.00000175,
+      "output": 0.000014,
+      "cache_read": 1.75e-7
+    },
+    "gpt-5.2-chat-latest": {
+      "input": 0.00000175,
+      "output": 0.000014,
+      "cache_read": 1.75e-7
+    },
+    "openai/gpt-5.2-chat-latest": {
+      "input": 0.00000175,
+      "output": 0.000014,
+      "cache_read": 1.75e-7
+    },
+    "gpt-5.2-2025-12-11": {
+      "input": 0.00000175,
+      "output": 0.000014,
+      "cache_read": 1.75e-7
+    },
+    "openai/gpt-5.2-2025-12-11": {
+      "input": 0.00000175,
+      "output": 0.000014,
+      "cache_read": 1.75e-7
+    },
+    "gpt-5.2-pro": {
+      "input": 0.000021,
+      "output": 0.000168
+    },
+    "openai/gpt-5.2-pro": {
+      "input": 0.000021,
+      "output": 0.000168
+    },
+    "gpt-5.2-pro-2025-12-11": {
+      "input": 0.000021,
+      "output": 0.000168
+    },
+    "openai/gpt-5.2-pro-2025-12-11": {
+      "input": 0.000021,
+      "output": 0.000168
+    },
+    "gpt-6-astra": {
+      "input": 0.00001,
+      "output": 0.00005,
+      "cache_read": 0.000001,
+      "cache_write": 0.0000125
+    },
+    "openai/gpt-6-astra": {
+      "input": 0.00001,
+      "output": 0.00005,
+      "cache_read": 0.000001,
+      "cache_write": 0.0000125
+    },
+    "gpt-6-sol": {
+      "input": 0.000002,
+      "output": 0.00001,
+      "cache_read": 2e-7,
+      "cache_write": 0.0000025
+    },
+    "openai/gpt-6-sol": {
+      "input": 0.000002,
+      "output": 0.00001,
+      "cache_read": 2e-7,
+      "cache_write": 0.0000025
+    },
+    "gpt-6-luna": {
+      "input": 1e-7,
+      "output": 5e-7,
+      "cache_read": 1e-8,
+      "cache_write": 1.25e-7
+    },
+    "openai/gpt-6-luna": {
+      "input": 1e-7,
+      "output": 5e-7,
+      "cache_read": 1e-8,
+      "cache_write": 1.25e-7
+    },
+    "gpt-5.6": {
+      "input": 0.000004,
+      "output": 0.00002,
+      "cache_read": 4e-7,
+      "cache_write": 0.000005
+    },
+    "openai/gpt-5.6": {
+      "input": 0.000004,
+      "output": 0.00002,
+      "cache_read": 4e-7,
+      "cache_write": 0.000005
+    },
+    "gpt-5.6-sol": {
+      "input": 0.000004,
+      "output": 0.00002,
+      "cache_read": 4e-7,
+      "cache_write": 0.000005
+    },
+    "openai/gpt-5.6-sol": {
+      "input": 0.000004,
+      "output": 0.00002,
+      "cache_read": 4e-7,
+      "cache_write": 0.000005
+    },
+    "gpt-5.6-terra": {
+      "input": 0.000002,
+      "output": 0.000012,
+      "cache_read": 2e-7,
+      "cache_write": 0.0000025
+    },
+    "openai/gpt-5.6-terra": {
+      "input": 0.000002,
+      "output": 0.000012,
+      "cache_read": 2e-7,
+      "cache_write": 0.0000025
+    },
+    "gpt-5.6-luna": {
+      "input": 2e-7,
+      "output": 0.0000012,
+      "cache_read": 2e-8,
+      "cache_write": 2.5e-7
+    },
+    "openai/gpt-5.6-luna": {
+      "input": 2e-7,
+      "output": 0.0000012,
+      "cache_read": 2e-8,
+      "cache_write": 2.5e-7
+    },
+    "gpt-5.6-cyber": {
+      "input": 0.0000125,
+      "output": 0.000075,
+      "cache_read": 0.00000125,
+      "cache_write": 0.000015625
+    },
+    "openai/gpt-5.6-cyber": {
+      "input": 0.0000125,
+      "output": 0.000075,
+      "cache_read": 0.00000125,
+      "cache_write": 0.000015625
+    },
+    "gpt-daybreak-red-latest": {
+      "input": 0.0000125,
+      "output": 0.000075,
+      "cache_read": 0.00000125,
+      "cache_write": 0.000015625
+    },
+    "openai/gpt-daybreak-red-latest": {
+      "input": 0.0000125,
+      "output": 0.000075,
+      "cache_read": 0.00000125,
+      "cache_write": 0.000015625
+    },
+    "gpt-daybreak-blue-latest": {
+      "input": 0.000004,
+      "output": 0.00002,
+      "cache_read": 4e-7,
+      "cache_write": 0.000005
+    },
+    "openai/gpt-daybreak-blue-latest": {
+      "input": 0.000004,
+      "output": 0.00002,
+      "cache_read": 4e-7,
+      "cache_write": 0.000005
+    },
+    "gpt-5.5": {
+      "input": 0.000005,
+      "output": 0.00003,
+      "cache_read": 5e-7
+    },
+    "openai/gpt-5.5": {
+      "input": 0.000005,
+      "output": 0.00003,
+      "cache_read": 5e-7
+    },
+    "gpt-5.5-2026-04-23": {
+      "input": 0.000005,
+      "output": 0.00003,
+      "cache_read": 5e-7
+    },
+    "openai/gpt-5.5-2026-04-23": {
+      "input": 0.000005,
+      "output": 0.00003,
+      "cache_read": 5e-7
+    },
+    "gpt-5.5-pro": {
+      "input": 0.00003,
+      "output": 0.00018
+    },
+    "openai/gpt-5.5-pro": {
+      "input": 0.00003,
+      "output": 0.00018
+    },
+    "gpt-5.5-pro-2026-04-23": {
+      "input": 0.00003,
+      "output": 0.00018
+    },
+    "openai/gpt-5.5-pro-2026-04-23": {
+      "input": 0.00003,
+      "output": 0.00018
+    },
+    "gpt-5.4": {
+      "input": 0.0000025,
+      "output": 0.000015,
+      "cache_read": 2.5e-7
+    },
+    "openai/gpt-5.4": {
+      "input": 0.0000025,
+      "output": 0.000015,
+      "cache_read": 2.5e-7
+    },
+    "gpt-5.4-2026-03-05": {
+      "input": 0.0000025,
+      "output": 0.000015,
+      "cache_read": 2.5e-7
+    },
+    "openai/gpt-5.4-2026-03-05": {
+      "input": 0.0000025,
+      "output": 0.000015,
+      "cache_read": 2.5e-7
+    },
+    "gpt-5.4-pro": {
+      "input": 0.00003,
+      "output": 0.00018
+    },
+    "openai/gpt-5.4-pro": {
+      "input": 0.00003,
+      "output": 0.00018
+    },
+    "gpt-5.4-pro-2026-03-05": {
+      "input": 0.00003,
+      "output": 0.00018
+    },
+    "openai/gpt-5.4-pro-2026-03-05": {
+      "input": 0.00003,
+      "output": 0.00018
+    },
+    "gpt-5.4-mini": {
+      "input": 7.5e-7,
+      "output": 0.0000045,
+      "cache_read": 7.5e-8
+    },
+    "openai/gpt-5.4-mini": {
+      "input": 7.5e-7,
+      "output": 0.0000045,
+      "cache_read": 7.5e-8
+    },
+    "gpt-5.4-mini-2026-03-17": {
+      "input": 7.5e-7,
+      "output": 0.0000045,
+      "cache_read": 7.5e-8
+    },
+    "openai/gpt-5.4-mini-2026-03-17": {
+      "input": 7.5e-7,
+      "output": 0.0000045,
+      "cache_read": 7.5e-8
+    },
+    "gpt-5.4-nano": {
+      "input": 2e-7,
+      "output": 0.00000125,
+      "cache_read": 2e-8
+    },
+    "openai/gpt-5.4-nano": {
+      "input": 2e-7,
+      "output": 0.00000125,
+      "cache_read": 2e-8
+    },
+    "gpt-5.4-nano-2026-03-17": {
+      "input": 2e-7,
+      "output": 0.00000125,
+      "cache_read": 2e-8
+    },
+    "openai/gpt-5.4-nano-2026-03-17": {
+      "input": 2e-7,
+      "output": 0.00000125,
+      "cache_read": 2e-8
+    },
+    "gpt-5-pro": {
+      "input": 0.000015,
+      "output": 0.00012
+    },
+    "openai/gpt-5-pro": {
+      "input": 0.000015,
+      "output": 0.00012
+    },
+    "gpt-5-pro-2025-10-06": {
+      "input": 0.000015,
+      "output": 0.00012
+    },
+    "openai/gpt-5-pro-2025-10-06": {
+      "input": 0.000015,
+      "output": 0.00012
+    },
+    "gpt-5-2025-08-07": {
+      "input": 0.00000125,
+      "output": 0.00001,
+      "cache_read": 1.25e-7
+    },
+    "openai/gpt-5-2025-08-07": {
+      "input": 0.00000125,
+      "output": 0.00001,
+      "cache_read": 1.25e-7
+    },
+    "gpt-5-chat": {
+      "input": 0.00000125,
+      "output": 0.00001,
+      "cache_read": 1.25e-7
+    },
+    "openai/gpt-5-chat": {
+      "input": 0.00000125,
+      "output": 0.00001,
+      "cache_read": 1.25e-7
+    },
+    "gpt-5-chat-latest": {
+      "input": 0.00000125,
+      "output": 0.00001,
+      "cache_read": 1.25e-7
+    },
+    "openai/gpt-5-chat-latest": {
+      "input": 0.00000125,
+      "output": 0.00001,
+      "cache_read": 1.25e-7
+    },
+    "gpt-5.3-codex": {
+      "input": 0.00000175,
+      "output": 0.000014,
+      "cache_read": 1.75e-7
+    },
+    "openai/gpt-5.3-codex": {
+      "input": 0.00000175,
+      "output": 0.000014,
+      "cache_read": 1.75e-7
+    },
+    "gpt-5.3-chat-latest": {
+      "input": 0.00000175,
+      "output": 0.000014,
+      "cache_read": 1.75e-7
+    },
+    "openai/gpt-5.3-chat-latest": {
+      "input": 0.00000175,
+      "output": 0.000014,
+      "cache_read": 1.75e-7
+    },
+    "gpt-5-mini": {
+      "input": 2.5e-7,
+      "output": 0.000002,
+      "cache_read": 2.5e-8
+    },
+    "openai/gpt-5-mini": {
+      "input": 2.5e-7,
+      "output": 0.000002,
+      "cache_read": 2.5e-8
+    },
+    "gpt-5-mini-2025-08-07": {
+      "input": 2.5e-7,
+      "output": 0.000002,
+      "cache_read": 2.5e-8
+    },
+    "openai/gpt-5-mini-2025-08-07": {
+      "input": 2.5e-7,
+      "output": 0.000002,
+      "cache_read": 2.5e-8
+    },
+    "gpt-5-nano": {
+      "input": 5e-8,
+      "output": 4e-7,
+      "cache_read": 5e-9
+    },
+    "openai/gpt-5-nano": {
+      "input": 5e-8,
+      "output": 4e-7,
+      "cache_read": 5e-9
+    },
+    "gpt-5-nano-2025-08-07": {
+      "input": 5e-8,
+      "output": 4e-7,
+      "cache_read": 5e-9
+    },
+    "openai/gpt-5-nano-2025-08-07": {
+      "input": 5e-8,
+      "output": 4e-7,
+      "cache_read": 5e-9
+    },
+    "gpt-realtime": {
+      "input": 0.000004,
+      "output": 0.000016,
+      "cache_read": 4e-7
+    },
+    "openai/gpt-realtime": {
+      "input": 0.000004,
+      "output": 0.000016,
+      "cache_read": 4e-7
+    },
+    "gpt-realtime-1.5": {
+      "input": 0.000004,
+      "output": 0.000016,
+      "cache_read": 4e-7
+    },
+    "openai/gpt-realtime-1.5": {
+      "input": 0.000004,
+      "output": 0.000016,
+      "cache_read": 4e-7
+    },
+    "gpt-realtime-2": {
+      "input": 0.000004,
+      "output": 0.000024,
+      "cache_read": 4e-7
+    },
+    "openai/gpt-realtime-2": {
+      "input": 0.000004,
+      "output": 0.000024,
+      "cache_read": 4e-7
+    },
+    "gpt-realtime-2.1": {
+      "input": 0.000004,
+      "output": 0.000024,
+      "cache_read": 4e-7
+    },
+    "openai/gpt-realtime-2.1": {
+      "input": 0.000004,
+      "output": 0.000024,
+      "cache_read": 4e-7
+    },
+    "gpt-realtime-2.1-mini": {
+      "input": 6e-7,
+      "output": 0.0000024,
+      "cache_read": 6e-8
+    },
+    "openai/gpt-realtime-2.1-mini": {
+      "input": 6e-7,
+      "output": 0.0000024,
+      "cache_read": 6e-8
+    },
+    "gpt-realtime-mini": {
+      "input": 6e-7,
+      "output": 0.0000024,
+      "cache_read": 6e-8
+    },
+    "openai/gpt-realtime-mini": {
+      "input": 6e-7,
+      "output": 0.0000024,
+      "cache_read": 6e-8
+    },
+    "gpt-realtime-2025-08-28": {
+      "input": 0.000004,
+      "output": 0.000016,
+      "cache_read": 4e-7
+    },
+    "openai/gpt-realtime-2025-08-28": {
+      "input": 0.000004,
+      "output": 0.000016,
+      "cache_read": 4e-7
+    },
+    "bedrock/us.anthropic.claude-3-5-sonnet-20240620-v1:0": {
+      "input": 0.000003,
+      "output": 0.000015,
+      "cache_read": 3e-7,
+      "cache_write": 0.00000375
+    },
+    "bedrock/us.anthropic.claude-3-5-sonnet-20241022-v2:0": {
+      "input": 0.000003,
+      "output": 0.000015,
+      "cache_read": 3e-7,
+      "cache_write": 0.00000375
+    },
+    "bedrock/us.anthropic.claude-3-opus-20240229-v1:0": {
+      "input": 0.000015,
+      "output": 0.000075,
+      "cache_read": 0.0000015,
+      "cache_write": 0.00001875
+    },
+    "gpt-4o-mini-tts-2025-12-15": {
+      "input": 6e-7,
+      "output": 0.00001
+    },
+    "openai/gpt-4o-mini-tts-2025-12-15": {
+      "input": 6e-7,
+      "output": 0.00001
+    },
+    "gpt-4o-mini-transcribe-2025-03-20": {
+      "input": 0.00000125,
+      "output": 0.000005
+    },
+    "openai/gpt-4o-mini-transcribe-2025-03-20": {
+      "input": 0.00000125,
+      "output": 0.000005
+    },
+    "gpt-4o-mini-transcribe-2025-12-15": {
+      "input": 0.00000125,
+      "output": 0.000005
+    },
+    "openai/gpt-4o-mini-transcribe-2025-12-15": {
+      "input": 0.00000125,
+      "output": 0.000005
+    },
+    "gpt-5-search-api": {
+      "input": 0.00000125,
+      "output": 0.00001,
+      "cache_read": 1.25e-7
+    },
+    "openai/gpt-5-search-api": {
+      "input": 0.00000125,
+      "output": 0.00001,
+      "cache_read": 1.25e-7
+    },
+    "gpt-5-search-api-2025-10-14": {
+      "input": 0.00000125,
+      "output": 0.00001,
+      "cache_read": 1.25e-7
+    },
+    "openai/gpt-5-search-api-2025-10-14": {
+      "input": 0.00000125,
+      "output": 0.00001,
+      "cache_read": 1.25e-7
+    },
+    "gpt-realtime-mini-2025-12-15": {
+      "input": 6e-7,
+      "output": 0.0000024,
+      "cache_read": 6e-8
+    },
+    "openai/gpt-realtime-mini-2025-12-15": {
+      "input": 6e-7,
+      "output": 0.0000024,
+      "cache_read": 6e-8
+    },
+    "claude-mythos-5": {
+      "input": 0.00001,
+      "output": 0.00005,
+      "cache_read": 0.000001,
+      "cache_write": 0.0000125,
+      "cache_write_1h": 0.00002
+    },
+    "anthropic/claude-mythos-5": {
+      "input": 0.00001,
+      "output": 0.00005,
+      "cache_read": 0.000001,
+      "cache_write": 0.0000125,
+      "cache_write_1h": 0.00002
+    },
+    "claude-mythos-5-1": {
+      "input": 0.00001,
+      "output": 0.00005,
+      "cache_read": 2.5e-7,
+      "cache_write": 0.0000125,
+      "cache_write_1h": 0.00002
+    },
+    "anthropic/claude-mythos-5-1": {
+      "input": 0.00001,
+      "output": 0.00005,
+      "cache_read": 2.5e-7,
+      "cache_write": 0.0000125,
+      "cache_write_1h": 0.00002
+    },
+    "claude-mythos-5-2": {
+      "input": 0.000008,
+      "output": 0.00004,
+      "cache_read": 2e-7,
+      "cache_write": 0.00001,
+      "cache_write_1h": 0.000016
+    },
+    "anthropic/claude-mythos-5-2": {
+      "input": 0.000008,
+      "output": 0.00004,
+      "cache_read": 2e-7,
+      "cache_write": 0.00001,
+      "cache_write_1h": 0.000016
+    },
+    "claude-mythos-preview": {
+      "input": 0.00001,
+      "output": 0.00005,
+      "cache_read": 0.000001,
+      "cache_write": 0.0000125,
+      "cache_write_1h": 0.00002
+    },
+    "anthropic/claude-mythos-preview": {
+      "input": 0.00001,
+      "output": 0.00005,
+      "cache_read": 0.000001,
+      "cache_write": 0.0000125,
+      "cache_write_1h": 0.00002
+    },
+    "gpt-5.5-cyber": {
+      "input": 0.0000125,
+      "output": 0.000075,
+      "cache_read": 0.00000125
+    },
+    "openai/gpt-5.5-cyber": {
+      "input": 0.0000125,
+      "output": 0.000075,
+      "cache_read": 0.00000125
+    },
+    "gpt-5.5-cyber-preview": {
+      "input": 0.0000125,
+      "output": 0.000075,
+      "cache_read": 0.00000125
+    },
+    "openai/gpt-5.5-cyber-preview": {
+      "input": 0.0000125,
+      "output": 0.000075,
+      "cache_read": 0.00000125
+    },
+    "gpt-rosalind-research": {
+      "input": 0.000005,
+      "output": 0.000025,
+      "cache_read": 5e-7
+    },
+    "openai/gpt-rosalind-research": {
+      "input": 0.000005,
+      "output": 0.000025,
+      "cache_read": 5e-7
+    },
+    "gpt-6.1-sol": {
+      "input": 0.000002,
+      "output": 0.00001,
+      "cache_read": 1e-7,
+      "cache_write": 0.0000025
+    },
+    "openai/gpt-6.1-sol": {
+      "input": 0.000002,
+      "output": 0.00001,
+      "cache_read": 1e-7,
+      "cache_write": 0.0000025
+    },
+    "claude-haiku-5-5": {
+      "input": 1e-7,
+      "output": 5e-7,
+      "cache_read": 1e-8,
+      "cache_write": 1.25e-7,
+      "cache_write_1h": 2e-7
+    },
+    "anthropic/claude-haiku-5-5": {
+      "input": 1e-7,
+      "output": 5e-7,
+      "cache_read": 1e-8,
+      "cache_write": 1.25e-7,
+      "cache_write_1h": 2e-7
+    },
+    "gpt-rosalind-discovery": {
+      "input": 0.000005,
+      "output": 0.000025,
+      "cache_read": 5e-7
+    },
+    "openai/gpt-rosalind-discovery": {
+      "input": 0.000005,
+      "output": 0.000025,
+      "cache_read": 5e-7
+    },
+    "gpt-6.1-terra": {
+      "input": 0.000001,
+      "output": 0.000005,
+      "cache_read": 5e-8,
+      "cache_write": 0.00000125
+    },
+    "openai/gpt-6.1-terra": {
+      "input": 0.000001,
+      "output": 0.000005,
+      "cache_read": 5e-8,
+      "cache_write": 0.00000125
+    },
+    "gpt-6-rosalind": {
+      "input": 0.000015,
+      "output": 0.000075,
+      "cache_read": 0.0000015,
+      "cache_write": 0.00001875
+    },
+    "openai/gpt-6-rosalind": {
+      "input": 0.000015,
+      "output": 0.000075,
+      "cache_read": 0.0000015,
+      "cache_write": 0.00001875
+    },
+    "gpt-6-cyber": {
+      "input": 0.00002,
+      "output": 0.0001,
+      "cache_read": 0.000002,
+      "cache_write": 0.000025
+    },
+    "openai/gpt-6-cyber": {
+      "input": 0.00002,
+      "output": 0.0001,
+      "cache_read": 0.000002,
+      "cache_write": 0.000025
+    },
+    "gpt-6-astra-law": {
+      "input": 0.00001,
+      "output": 0.00005,
+      "cache_read": 0.000001
+    },
+    "openai/gpt-6-astra-law": {
+      "input": 0.00001,
+      "output": 0.00005,
+      "cache_read": 0.000001
+    },
+    "claude-fable-5-2": {
+      "input": 0.000008,
+      "output": 0.00004,
+      "cache_read": 2e-7,
+      "cache_write": 0.00001,
+      "cache_write_1h": 0.000016
+    },
+    "anthropic/claude-fable-5-2": {
+      "input": 0.000008,
+      "output": 0.00004,
+      "cache_read": 2e-7,
+      "cache_write": 0.00001,
+      "cache_write_1h": 0.000016
+    }
+  }
+}

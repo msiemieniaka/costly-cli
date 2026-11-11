@@ -1,0 +1,18 @@
+receivers:
+  otlp:
+    protocols:
+      http:
+        endpoint: 0.0.0.0:4318
+exporters:
+  otlphttp:
+    endpoint: http://prometheus:9090/api/v1/otlp
+    compression: none
+    sending_queue:
+      enabled: false
+    retry_on_failure:
+      enabled: false
+service:
+  pipelines:
+    metrics:
+      receivers: [otlp]
+      exporters: [otlphttp]

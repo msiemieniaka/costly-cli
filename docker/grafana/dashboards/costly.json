@@ -1,0 +1,284 @@
+{
+  "uid": "costly",
+  "title": "AI Cost",
+  "schemaVersion": 39,
+  "version": 1,
+  "refresh": "30s",
+  "timezone": "utc",
+  "time": {
+    "from": "now-30d",
+    "to": "now"
+  },
+  "panels": [
+    {
+      "id": 1,
+      "title": "Estimated USD in range",
+      "type": "stat",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "costly-prometheus"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum(increase(ai_cost_usd_total[$__range]))",
+          "instant": true,
+          "legendFormat": "{{project}}{{user}}{{model}}{{tool}}{{token_type}}"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
+      "options": {}
+    },
+    {
+      "id": 2,
+      "title": "Cost by project",
+      "type": "timeseries",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "costly-prometheus"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 0,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by (project) (increase(ai_cost_usd_total[$__rate_interval]))",
+          "instant": false,
+          "legendFormat": "{{project}}{{user}}{{model}}{{tool}}{{token_type}}"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
+      "options": {}
+    },
+    {
+      "id": 3,
+      "title": "Cost by user",
+      "type": "bargauge",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "costly-prometheus"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 8,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by (user) (increase(ai_cost_usd_total[$__range]))",
+          "instant": true,
+          "legendFormat": "{{project}}{{user}}{{model}}{{tool}}{{token_type}}"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
+      "options": {}
+    },
+    {
+      "id": 4,
+      "title": "Cost by model",
+      "type": "bargauge",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "costly-prometheus"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 8,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by (model) (increase(ai_cost_usd_total[$__range]))",
+          "instant": true,
+          "legendFormat": "{{project}}{{user}}{{model}}{{tool}}{{token_type}}"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
+      "options": {}
+    },
+    {
+      "id": 5,
+      "title": "Cost by tool",
+      "type": "bargauge",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "costly-prometheus"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 16,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by (tool) (increase(ai_cost_usd_total[$__range]))",
+          "instant": true,
+          "legendFormat": "{{project}}{{user}}{{model}}{{tool}}{{token_type}}"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
+      "options": {}
+    },
+    {
+      "id": 6,
+      "title": "Tokens by type",
+      "type": "bargauge",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "costly-prometheus"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 16,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by (token_type) (increase(ai_tokens_total[$__range]))",
+          "instant": true,
+          "legendFormat": "{{project}}{{user}}{{model}}{{tool}}{{token_type}}"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "options": {}
+    },
+    {
+      "id": 7,
+      "title": "Cache read share",
+      "type": "stat",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "costly-prometheus"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 24,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum(increase(ai_tokens_total{token_type=\"cache_read\"}[$__range])) / clamp_min(sum(increase(ai_tokens_total{token_type=~\"input|cache_read|cache_write|cache_write_1h\"}[$__range])), 1)",
+          "instant": true,
+          "legendFormat": "{{project}}{{user}}{{model}}{{tool}}{{token_type}}"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "options": {}
+    },
+    {
+      "id": 8,
+      "title": "Cost by project and user",
+      "type": "table",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "costly-prometheus"
+      },
+      "gridPos": {
+        "x": 12,
+        "y": 24,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum by (project,user) (increase(ai_cost_usd_total[$__range]))",
+          "instant": true,
+          "legendFormat": "{{project}}{{user}}{{model}}{{tool}}{{token_type}}"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
+      "options": {}
+    },
+    {
+      "id": 9,
+      "title": "Unassigned request share",
+      "type": "stat",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "costly-prometheus"
+      },
+      "gridPos": {
+        "x": 0,
+        "y": 32,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sum(increase(ai_requests_total{project=\"unassigned\"}[$__range])) / clamp_min(sum(increase(ai_requests_total[$__range])), 1)",
+          "instant": true,
+          "legendFormat": "{{project}}{{user}}{{model}}{{tool}}{{token_type}}"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "options": {}
+    }
+  ]
+}

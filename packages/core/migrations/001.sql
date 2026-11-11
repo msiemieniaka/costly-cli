@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS usage (
+  id TEXT PRIMARY KEY, timestamp INTEGER NOT NULL, data TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS usage_time ON usage(timestamp);
+CREATE TABLE IF NOT EXISTS state (key TEXT PRIMARY KEY, value TEXT NOT NULL);
+PRAGMA user_version = 1;

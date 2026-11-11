@@ -111,3 +111,22 @@ dist
 
 # TernJS port file
 .tern-port
+
+# costly local usage, credentials, exports and backend state
+*.db
+*.db-*
+*.sqlite-*
+.env.*
+costly.csv
+costly.json
+costs.csv
+costs.json
+config.local.toml
+connection.json
+device-id
+daemon.lock
+docker/**/data/
+local-checks/
+prices.json
+exports/
+!docker/grafana/dashboards/costly.json
