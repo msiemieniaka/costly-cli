@@ -14,14 +14,18 @@ function matches(value: string, pattern: string) {
   const escaped = pattern.replace(/^~/, homedir()).replace(/\\/g, '/').split('*').map(s => s.replace(/[.+?^${}()|[\]\\]/g, '\\$&')).join('.*');
   return new RegExp('^' + escaped + '$', process.platform === 'win32' ? 'i' : '').test(value.replace(/\\/g, '/'));
 }
+export function matchingRule(cwd: string, remote: string, branch: string, config: Config) {
+  return config.rule?.find(r => (r.match_path || r.match_remote || r.match_branch) && (!r.match_path || matches(cwd, r.match_path)) && (!r.match_remote || matches(remote, r.match_remote)) && (!r.match_branch || matches(branch, r.match_branch)));
+}
 export function project(cwd: string, config: Config, env = process.env, saved?: { remote: string; branch: string; component: string }) {
   const root = cwd && command(['git', 'rev-parse', '--show-toplevel'], cwd);
   const remote = root ? normalizeRemote(command(['git', 'remote', 'get-url', 'upstream'], cwd) || command(['git', 'remote', 'get-url', 'origin'], cwd)) : saved?.remote || '';
   const branch = root ? command(['git', 'branch', '--show-current'], cwd) : saved?.branch || '';
   const component = remote.split('/').pop() || (root ? basename(root) : saved?.component || 'unassigned');
   let selected = { project: component, component, team: config.team || '', source: root ? 'git' : 'unassigned' };
-  const rule = config.rule?.find(r => (r.match_path || r.match_remote || r.match_branch) && (!r.match_path || matches(cwd, r.match_path)) && (!r.match_remote || matches(remote, r.match_remote)) && (!r.match_branch || matches(branch, r.match_branch)));
+  const rule = matchingRule(cwd, remote, branch, config);
   if (rule) selected = { ...selected, ...rule, source: 'rule' };
+  let markerRuleConflict = false;
   if (cwd && existsSync(cwd)) for (let dir = resolve(cwd);; dir = dirname(dir)) {
     let marker: Record<string, string> | undefined;
     const toml = dir + '/.costly.toml';
@@ -32,12 +36,12 @@ export function project(cwd: string, config: Config, env = process.env, saved?: 
       const match = readFileSync(path, 'utf8').match(/<!--\s*costly:\s*([^\n]*?)-->/);
       if (match) { marker = Object.fromEntries([...match[1].matchAll(/(project|component|team)=([^\s]+)/g)].map(m => [m[1], m[2]])); break; }
     }
-    if (marker?.project) { selected = { ...selected, project: marker.project, component: marker.component || component, team: marker.team || config.team || '', source: 'marker' }; break; }
+    if (marker?.project) { markerRuleConflict = !!rule && (marker.project !== rule.project || (marker.component || component) !== (rule.component || component) || (marker.team || config.team || '') !== (rule.team || config.team || '')); selected = { ...selected, project: marker.project, component: marker.component || component, team: marker.team || config.team || '', source: 'marker' }; break; }
     if (dirname(dir) === dir) break;
   }
   if (env.COSTLY_PROJECT) selected = { ...selected, project: env.COSTLY_PROJECT, source: 'environment' };
   if (env.COSTLY_COMPONENT) selected.component = env.COSTLY_COMPONENT;
-  return { ...selected, remote, branch };
+  return { ...selected, remote, branch, markerRuleConflict };
 }
 export function identity(config: Config, provider: Provider, cwd = '', run = command, toolEmail = '', env = process.env) {
   const candidates: [string | undefined, string][] = [[env.COSTLY_USER || config.user, 'config']];

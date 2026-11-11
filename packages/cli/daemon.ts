@@ -56,10 +56,10 @@ export async function run() {
 }
 export async function start(entry: string) {
   if (running()) return;
-  const child = spawn(process.execPath, [entry, 'daemon', 'run'], { detached: true, stdio: 'ignore', windowsHide: true, env: process.env });
+  const child = spawn(process.execPath, [entry, 'run'], { detached: true, stdio: 'ignore', windowsHide: true, env: process.env });
   child.unref();
   for (let i = 0; i < 50; i++) { if (running()) return; await Bun.sleep(100); }
-  throw new Error('Daemon did not start; run costly daemon run to diagnose.');
+  throw new Error('Daemon did not start; run costly run to diagnose.');
 }
 export async function stop() {
   const lock = running();

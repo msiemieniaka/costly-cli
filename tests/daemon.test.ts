@@ -14,14 +14,17 @@ test('non-interactive background start, second start, status and graceful stop',
   try {
     writeFileSync(join(root, 'config.toml'), `user="dev@example.invalid"\nclaude_dir=${JSON.stringify(join(root, 'absent-claude'))}\ncodex_dir=${JSON.stringify(join(root, 'absent-codex'))}\n`);
     writeFileSync(join(root, 'prices.json'), JSON.stringify({ version: 'synthetic', models: {} }));
-    expect(await call('daemon', 'start')).toContain('Daemon started');
+    expect(await call('start')).toContain('Daemon started');
     expect(existsSync(join(root, 'daemon.lock'))).toBe(true);
-    expect(await call('daemon', 'start')).toContain('Daemon already running');
+    expect(await call('start')).toContain('Daemon already running');
     expect(JSON.parse(await call('status')).running).toBe(true);
-    expect(await call('daemon', 'stop')).toContain('Daemon stopped');
+    expect(await call('stop')).toContain('Daemon stopped');
     expect(JSON.parse(await call('status')).running).toBe(false);
+    expect(await call('daemon', 'start')).toContain('Daemon started');
+    expect(JSON.parse(await call('daemon', 'status')).running).toBe(true);
+    expect(await call('daemon', 'stop')).toContain('Daemon stopped');
   } finally {
-    if (existsSync(join(root, 'daemon.lock'))) await call('daemon', 'stop');
+    if (existsSync(join(root, 'daemon.lock'))) await call('stop');
     rmSync(root, { recursive: true });
   }
 }, 30000);

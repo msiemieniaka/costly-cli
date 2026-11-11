@@ -14,7 +14,7 @@ bun test
 bun run lint
 bun run build
 bun link
-costly daemon start
+costly start
 ```
 
 Alternatively, use `bun packages/cli/main.ts` in place of `costly`. The interactive first start imports history, shows estimates, confirms identity and offers local Docker Grafana, your own endpoint, Grafana Cloud or collection without a backend. Non-interactive start never prompts.
@@ -24,7 +24,7 @@ For a fully scripted local setup:
 ```sh
 bun packages/cli/main.ts stack up
 bun packages/cli/main.ts setup grafana --endpoint http://127.0.0.1:4318
-bun packages/cli/main.ts daemon start
+bun packages/cli/main.ts start
 bun packages/cli/main.ts status
 ```
 
@@ -38,7 +38,7 @@ costly export --format json --level session -o costs.json
 costly project
 costly whoami
 costly doctor
-costly daemon stop
+costly stop
 costly stack down
 ```
 
@@ -93,3 +93,11 @@ See [validation status](docs/validation.md) for completed tests and remaining ac
 `packages/core`: metadata, SQLite, attribution, pricing, reports. `packages/collector`: readers and OTLP HTTP/JSON export. `packages/cli`: commands, daemon and setup. `docker`: local observability stack. Tests generate synthetic files in temporary directories and remove them afterward. Additional local checks: `bun scripts/docker-check.ts`, `bun scripts/keychain-check.ts`.
 
 Apache-2.0. The repository is public; source pushes and merges require owner approval. Package publication, releases and image pushes remain disabled.
+
+### Project setup
+
+Run `costly init` inside a repository to choose a project, component and team. It writes `.costly.toml` at the git root and a matching local config rule (normalised remote, or path without a remote). Commit the marker yourself to share it. No git changes are made by init. Outside git it uses the current folder. Parent markers are inherited by child repositories unless a nearer marker overrides them.
+
+Scripts must pass `--project NAME`; optional flags are `--component NAME`, `--team NAME`, `--yes` (skip questions), `--force` (overwrite existing marker labels), `--repo-only` (marker only), and `--local` (local rule only). Names allow 1?63 letters, digits, dots, underscores and hyphens. Existing comments, unrelated keys and rules are preserved. `costly doctor` warns if marker and local rule disagree; the marker wins. Reports reassign old sessions, but already sent Grafana data keeps its old labels.
+
+Use `costly start`, `costly stop`, `costly status` and `costly run` (foreground). The old `costly daemon ?` commands remain compatibility aliases for one version.

@@ -7,11 +7,15 @@ import { project, identity } from '../core/attribution';
 import { report, csv } from '../core/report';
 import { push, pendingPoints } from '../collector/metrics';
 import { run, start, stop, sync, running } from './daemon';
+import { init } from './init';
 import { setup, stack } from './setup';
 
 const args = process.argv.slice(2);
-const command = args.shift() || 'help';
+let command = args.shift() || 'help';
 const sub = args[0]?.startsWith('-') ? '' : args.shift();
+if (command === 'daemon' && ['start', 'stop', 'status', 'run'].includes(sub || '')) {
+  command = sub!; console.error(`Use costly ${command} instead of costly daemon ${command}.`);
+}
 const options: Record<string, string | boolean> = {};
 for (let i = 0; i < args.length; i++) {
   const key = args[i].replace(/^--?/, '');
@@ -25,35 +29,39 @@ function date(value: string | boolean | undefined, fallback: number) {
   return result;
 }
 async function main() {
-  if (command === 'help' || command === '--help') { console.log('costly — early PoC, not released\nCommands: sync, report, export, project, whoami, doctor, status, setup, stack up|down, daemon run|start|stop|status\nReports: --by project,model --from YYYY-MM-DD --to YYYY-MM-DD (exclusive)\nExport: --format csv|json --level daily|session --excel -o file\nSetup: grafana --endpoint URL [--token-env NAME] [--instance-id ID]'); return; }
+  if (command === 'help' || command === '--help') { console.log('costly — early PoC, not released\nCommands: sync, report, export, project, whoami, doctor, status, setup, stack up|down, start, stop, run, init\nReports: --by project,model --from YYYY-MM-DD --to YYYY-MM-DD (exclusive)\nExport: --format csv|json --level daily|session --excel -o file\nInit: --project NAME [--component NAME] [--team NAME] [--yes] [--force] [--repo-only | --local]\nSetup: grafana --endpoint URL [--token-env NAME] [--instance-id ID]'); return; }
+  if (command === 'init') { if (sub) throw new Error('Use costly init --project NAME.'); await init(options); return; }
   if (command === 'project') { console.log(JSON.stringify(project(process.cwd(), loadConfig()), null, 2)); return; }
   if (command === 'whoami') { console.log(JSON.stringify(identity(loadConfig(), 'unknown', process.cwd()), null, 2)); return; }
   if (command === 'stack') { await stack(sub || ''); return; }
   if (command === 'setup') { await setup(options); return; }
-  if (command === 'daemon' && sub === 'run') { await run(); return; }
-  if (command === 'daemon' && sub === 'stop') { await stop(); console.log('Daemon stopped.'); return; }
+  if (command === 'run') { await run(); return; }
+  if (command === 'stop') { await stop(); console.log('Daemon stopped.'); return; }
   const store = new Store(paths().db);
   try {
     if (command === 'sync') { console.log(JSON.stringify(await sync(store))); return; }
-    if (command === 'daemon' && sub === 'start') {
+    if (command === 'start') {
       console.log(JSON.stringify(await sync(store)));
       const already = !!running();
       await start(resolve(process.argv[1]));
       console.log((already ? 'Daemon already running.' : 'Daemon started.') + ' Estimates (API equivalent, not subscription charges):');
       console.table(report(store.rows(), 'project'));
+      console.log('To name a project, run costly init inside its repository.');
       if (process.stdin.isTTY && !loadConfig().endpoint) await setup(options);
       else if (!loadConfig().endpoint) console.log('Not connected; run costly setup. Collection continues.');
       return;
     }
-    if (command === 'status' || command === 'doctor' || command === 'daemon' && sub === 'status') {
+    if (command === 'status' || command === 'doctor') {
       const rows = store.rows();
       const status = { running: !!running(), files: Number(store.get('files') || 0), records: rows.length, unpriced: rows.filter(r => r.costBasis === 'unpriced').length, unassigned: rows.filter(r => r.project === 'unassigned').length, unknownIdentity: rows.filter(r => r.identitySource === 'os').length, lastImport: store.get('lastImport') || null, lastPush: store.get('lastPush') || null, connection: store.get('connectionError') || (loadConfig().endpoint ? 'configured' : 'not connected'), invalidLines: Number(store.get('invalid') || 0), rejectedSeries: Number(store.get('rejectedSeries') || 0), pendingPoints: pendingPoints(store, loadConfig()) };
       console.log(JSON.stringify(status, null, 2));
       if (command === 'doctor') {
+        const conflicts = [...new Set([process.cwd(), ...rows.map(r => r.cwd)])].filter(cwd => project(cwd, loadConfig()).markerRuleConflict);
         const problems = [
+          ...conflicts.map(cwd => `Marker and local rule disagree in ${cwd}; marker wins. Run costly init to align them.`),
           status.unknownIdentity && `${status.unknownIdentity} records have no email (user "unknown:…"). Set user in config.toml or COSTLY_USER.`,
           status.unpriced && `${status.unpriced} records have no price; they are excluded from USD totals.`,
-          status.unassigned && `${status.unassigned} records have no project. Add a .costly.toml marker or a rule.`,
+          status.unassigned && `${status.unassigned} records have no project. Run costly init in that project folder.`,
           status.rejectedSeries && `The backend refused ${status.rejectedSeries} series on the last push.`,
           status.connection !== 'configured' && `Connection: ${status.connection}`,
         ].filter(Boolean);
