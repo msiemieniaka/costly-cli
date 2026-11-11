@@ -2,7 +2,7 @@
   "uid": "costly",
   "title": "AI Cost",
   "schemaVersion": 39,
-  "version": 1,
+  "version": 2,
   "refresh": "30s",
   "timezone": "utc",
   "time": {
@@ -10,6 +10,95 @@
     "to": "now"
   },
   "panels": [
+    {
+      "id": 10,
+      "title": "Total cost by project",
+      "type": "bargauge",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "costly-prometheus"
+      },
+      "description": "Estimated USD per project in the selected time range. Exact totals: costly report --by project.",
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sort_desc(sum by (project) (increase(ai_cost_usd_total[$__range])))",
+          "instant": true,
+          "legendFormat": "{{project}}"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "currencyUSD",
+          "decimals": 2
+        },
+        "overrides": []
+      },
+      "options": {
+        "orientation": "horizontal",
+        "displayMode": "gradient",
+        "showUnfilled": true,
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        }
+      }
+    },
+    {
+      "id": 11,
+      "title": "Top 5 users in $top_project",
+      "type": "bargauge",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "costly-prometheus"
+      },
+      "description": "The 5 users who spent the most in this project in the selected time range. Pick projects in \"Top users for\" at the top.",
+      "repeat": "top_project",
+      "repeatDirection": "h",
+      "maxPerRow": 2,
+      "gridPos": {
+        "x": 12,
+        "y": 0,
+        "w": 12,
+        "h": 8
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "expr": "sort_desc(topk(5, sum by (user) (increase(ai_cost_usd_total{project=\"$top_project\"}[$__range]))))",
+          "instant": true,
+          "legendFormat": "{{user}}"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "currencyUSD",
+          "decimals": 2
+        },
+        "overrides": []
+      },
+      "options": {
+        "orientation": "horizontal",
+        "displayMode": "gradient",
+        "showUnfilled": true,
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        }
+      }
+    },
     {
       "id": 1,
       "title": "Estimated USD in range",
@@ -20,7 +109,7 @@
       },
       "gridPos": {
         "x": 0,
-        "y": 0,
+        "y": 8,
         "w": 12,
         "h": 8
       },
@@ -50,7 +139,7 @@
       },
       "gridPos": {
         "x": 12,
-        "y": 0,
+        "y": 8,
         "w": 12,
         "h": 8
       },
@@ -80,7 +169,7 @@
       },
       "gridPos": {
         "x": 0,
-        "y": 8,
+        "y": 16,
         "w": 12,
         "h": 8
       },
@@ -110,7 +199,7 @@
       },
       "gridPos": {
         "x": 12,
-        "y": 8,
+        "y": 16,
         "w": 12,
         "h": 8
       },
@@ -140,7 +229,7 @@
       },
       "gridPos": {
         "x": 0,
-        "y": 16,
+        "y": 24,
         "w": 12,
         "h": 8
       },
@@ -170,7 +259,7 @@
       },
       "gridPos": {
         "x": 12,
-        "y": 16,
+        "y": 24,
         "w": 12,
         "h": 8
       },
@@ -200,7 +289,7 @@
       },
       "gridPos": {
         "x": 0,
-        "y": 24,
+        "y": 32,
         "w": 12,
         "h": 8
       },
@@ -230,7 +319,7 @@
       },
       "gridPos": {
         "x": 12,
-        "y": 24,
+        "y": 32,
         "w": 12,
         "h": 8
       },
@@ -260,7 +349,7 @@
       },
       "gridPos": {
         "x": 0,
-        "y": 32,
+        "y": 40,
         "w": 12,
         "h": 8
       },
@@ -280,5 +369,37 @@
       },
       "options": {}
     }
-  ]
+  ],
+  "templating": {
+    "list": [
+      {
+        "name": "top_project",
+        "label": "Top users for",
+        "type": "query",
+        "datasource": {
+          "type": "prometheus",
+          "uid": "costly-prometheus"
+        },
+        "query": {
+          "query": "label_values(ai_cost_usd_total, project)",
+          "refId": "top_project"
+        },
+        "definition": "label_values(ai_cost_usd_total, project)",
+        "multi": true,
+        "includeAll": false,
+        "refresh": 2,
+        "sort": 1,
+        "current": {
+          "text": [
+            "milo",
+            "sirco"
+          ],
+          "value": [
+            "milo",
+            "sirco"
+          ]
+        }
+      }
+    ]
+  }
 }
