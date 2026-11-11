@@ -56,15 +56,15 @@ export async function run() {
 }
 export async function start(entry: string) {
   if (running()) return;
-  const child = spawn(process.execPath, [entry, 'run'], { detached: true, stdio: 'ignore', windowsHide: true, env: process.env });
+  const child = spawn(process.execPath, [entry, '__collector'], { detached: true, stdio: 'ignore', windowsHide: true, env: process.env });
   child.unref();
   for (let i = 0; i < 50; i++) { if (running()) return; await Bun.sleep(100); }
-  throw new Error('Daemon did not start; run costly run to diagnose.');
+  throw new Error('Daemon did not start; check costly status and costly doctor.');
 }
 export async function stop() {
   const lock = running();
-  if (!lock) return;
+  if (!lock) return false;
   writeFileSync(paths().stop, lock.nonce, { mode: 0o600 });
-  for (let i = 0; i < 45; i++) { if (!running()) return; await Bun.sleep(1000); }
+  for (let i = 0; i < 45; i++) { if (!running()) return true; await Bun.sleep(1000); }
   throw new Error('Stop requested; daemon is finishing an in-flight operation.');
 }

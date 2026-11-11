@@ -11,11 +11,8 @@ import { init } from './init';
 import { setup, stack } from './setup';
 
 const args = process.argv.slice(2);
-let command = args.shift() || 'help';
+const command = args.shift() || 'help';
 const sub = args[0]?.startsWith('-') ? '' : args.shift();
-if (command === 'daemon' && ['start', 'stop', 'status', 'run'].includes(sub || '')) {
-  command = sub!; console.error(`Use costly ${command} instead of costly daemon ${command}.`);
-}
 const options: Record<string, string | boolean> = {};
 for (let i = 0; i < args.length; i++) {
   const key = args[i].replace(/^--?/, '');
@@ -29,14 +26,15 @@ function date(value: string | boolean | undefined, fallback: number) {
   return result;
 }
 async function main() {
-  if (command === 'help' || command === '--help') { console.log('costly — early PoC, not released\nCommands: sync, report, export, project, whoami, doctor, status, setup, stack up|down, start, stop, run, init\nReports: --by project,model --from YYYY-MM-DD --to YYYY-MM-DD (exclusive)\nExport: --format csv|json --level daily|session --excel -o file\nInit: --project NAME [--component NAME] [--team NAME] [--yes] [--force] [--repo-only | --local]\nSetup: grafana --endpoint URL [--token-env NAME] [--instance-id ID]'); return; }
+  if (command === 'help' || command === '--help') { console.log('costly — early PoC, not released\nCommands: sync, report, export, project, whoami, doctor, status, setup, stack up|down, start, stop, init\nReports: --by project,model --from YYYY-MM-DD --to YYYY-MM-DD (exclusive)\nExport: --format csv|json --level daily|session --excel -o file\nInit: --project NAME [--component NAME] [--team NAME] [--yes] [--force] [--repo-only | --local]\nSetup: grafana --endpoint URL [--token-env NAME] [--instance-id ID]'); return; }
   if (command === 'init') { if (sub) throw new Error('Use costly init --project NAME.'); await init(options); return; }
   if (command === 'project') { console.log(JSON.stringify(project(process.cwd(), loadConfig()), null, 2)); return; }
   if (command === 'whoami') { console.log(JSON.stringify(identity(loadConfig(), 'unknown', process.cwd()), null, 2)); return; }
   if (command === 'stack') { await stack(sub || ''); return; }
   if (command === 'setup') { await setup(options); return; }
-  if (command === 'run') { await run(); return; }
-  if (command === 'stop') { await stop(); console.log('Daemon stopped.'); return; }
+  // Private entry used only by the detached background launcher.
+  if (command === '__collector') { await run(); return; }
+  if (command === 'stop') { console.log(await stop() ? 'Daemon stopped.' : 'Daemon is not running.'); return; }
   const store = new Store(paths().db);
   try {
     if (command === 'sync') { console.log(JSON.stringify(await sync(store))); return; }
@@ -88,4 +86,4 @@ async function main() {
     if (options.o) writeFileSync(String(options.o), output, { flag: 'wx', mode: 0o600 }); else console.log(output);
   } finally { store.close(); }
 }
-try { await main(); } catch (e) { console.error(e instanceof Error ? e.message : 'Operation failed.'); process.exitCode = 1; }
+try { await main(); } catch (e) { if (command !== '__collector') console.error(e instanceof Error ? e.message : 'Operation failed.'); process.exitCode = 1; }

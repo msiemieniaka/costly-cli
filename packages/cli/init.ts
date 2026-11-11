@@ -94,8 +94,15 @@ export async function init(options: Options, cwd = process.cwd()) {
     const nextMarker = options.local ? undefined : markerText(oldMarker || '# costly project marker — https://github.com/msiemieniaka/costly-cli\n', values);
     const nextConfig = options['repo-only'] ? undefined : ruleText(oldConfig, target, values);
     if (read(marker) !== oldMarker || read(config) !== oldConfig) throw new Error('Files changed during init; retry.');
+    // A rejected marker write must not change the local rule.
+    if (nextMarker !== undefined) {
+      try { writeFileSync(marker, nextMarker); }
+      catch (error) {
+        throw new Error(`Cannot write project marker ${marker}. Check that it is writable; config.toml was not changed. (${(error as NodeJS.ErrnoException).code || 'write failed'})`);
+      }
+      console.log(`Marker saved in ${marker}\nCommit .costly.toml so your team uses the same project.`);
+    }
     if (nextConfig !== undefined) { mkdirSync(dirname(config), { recursive: true }); writeFileSync(config, nextConfig, { mode: 0o600 }); console.log(`Rule saved in ${config}`); }
-    if (nextMarker !== undefined) { writeFileSync(marker, nextMarker); console.log(`Marker saved in ${marker}\nCommit .costly.toml so your team uses the same project.`); }
     console.log('Check: costly project\nStart collection: costly start');
   } finally { rl?.close(); }
 }

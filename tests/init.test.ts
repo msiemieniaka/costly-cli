@@ -1,5 +1,5 @@
 import { test, expect } from 'bun:test';
-import { mkdtempSync, readFileSync, writeFileSync, rmSync, mkdirSync, existsSync } from 'node:fs';
+import { mkdtempSync, readFileSync, writeFileSync, rmSync, mkdirSync, existsSync, chmodSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { markerText, ruleText, validateLabel } from '../packages/cli/init';
@@ -54,8 +54,35 @@ test('init CLI: root discovery, non-TTY, modes, preservation, attribution and do
     const plain = join(temp, 'all repos'); mkdirSync(plain);
     expect(cli(['init', '--project', 'parent'], plain).code).toBe(0);
     expect(existsSync(join(plain, '.costly.toml'))).toBe(true);
-    expect(cli(['help']).out).not.toContain('daemon run|');
-    expect(cli(['daemon', 'status']).err).toContain('Use costly status');
+    expect(cli(['help']).out).not.toContain('daemon');
     expect(cli(['stop']).code).toBe(0);
   } finally { rmSync(temp, { recursive: true, force: true }); }
+});
+
+test('failed marker write leaves existing or absent config untouched', () => {
+  const temp = mkdtempSync(join(tmpdir(), 'costly-readonly-'));
+  const repo = join(temp, 'repo'), home = join(temp, 'home');
+  mkdirSync(repo); mkdirSync(home);
+  const marker = join(repo, '.costly.toml'), config = join(home, 'config.toml');
+  const original = 'project = "old" # keep\n';
+  try {
+    writeFileSync(marker, original);
+    chmodSync(marker, 0o444);
+    for (const existing of [false, true]) {
+      const configText = '# keep this config\nuser = "dev@example.invalid"\n';
+      if (existing) writeFileSync(config, configText);
+      const result = Bun.spawnSync([process.execPath, entry, 'init', '--project', 'p', '--force'], {
+        cwd: repo, env: { ...process.env, COSTLY_HOME: home }, stdin: 'ignore', stdout: 'pipe', stderr: 'pipe',
+      });
+      expect(result.exitCode).toBe(1);
+      expect(readFileSync(marker, 'utf8')).toBe(original);
+      expect(existing ? readFileSync(config, 'utf8') : existsSync(config)).toBe(existing ? configText : false);
+      expect(result.stdout.toString()).not.toContain('Rule saved');
+      expect(result.stderr.toString()).toContain('Cannot write project marker');
+      expect(result.stderr.toString()).toContain('config.toml was not changed');
+    }
+  } finally {
+    chmodSync(marker, 0o644);
+    rmSync(temp, { recursive: true, force: true });
+  }
 });
